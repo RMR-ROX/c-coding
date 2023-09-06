@@ -1,79 +1,48 @@
 #include<iostream>
 using namespace std;
-int Binarysearch(int arr[],int size,int key);
-int main()
-{
-	int n,key;
-cout<<"enter the size of the array ";
-cin>>n;
-int arr[n];
-cout<<"enter  the array ";
+
+int allocatebooks(vector<int> arr,int n,int m){
+int s=0,sum=0;
 for(int i=0;i<n;i++)
 {
-	cin>>arr[i];
+sum+=arr[i];
 }
-cout<<"enter the target element you want to find ";
-cin>>key;
-cout<<key <<" is present at index "<<Binarysearch(arr,n,key) <<" "<<endl;
-return 0;
+int e=sum;
+int ans=-1;
+int mid=s+(e-s)/2;
+while(s<=e)
+{
+if(ispossible(arr,n,m,mid))
+{
+ans=mid;
+e=mid-1;
 }
-int Binarysearch(int arr[],int size,int key)
+else
 {
-	int start=0,end=size-1,mid;
-	while(start<=end)
-{
-	mid=(start+end)/2;
-	
-}#include<iostream>
-using namespace std;
-int Binarysearch(int arr[],int size,int key);
-int main()
-{
-	int n,key;
-cout<<"enter the size of the array ";
-cin>>n;
-int arr[n];
-cout<<"enter  the array ";
-for(int i=0;i<n;i++)
-{
-	cin>>arr[i];
+s=mid=!;
 }
-cout<<"enter the target element you want to find ";
-cin>>key;
-cout<<key <<" is present at index "<<Binarysearch(arr,n,key) <<" "<<endl;
-return 0;
+mid=s+(e-s)/2;
 }
-int Binarysearch(int arr[],int size,int key)
-{
-	int start=0,end=size-1,mid;
-	while(start<=end)
-{
-	mid=(start+end)/2;
-	#include<iostream>
-using namespace std;
-int Binarysearch(int arr[],int size,int key);
-int main()
-{
-	int n,key;
-cout<<"enter the size of the array ";
-cin>>n;
-int arr[n];
-cout<<"enter  the array ";
-for(int i=0;i<n;i++)
-{
-	cin>>arr[i];
+return ans;
 }
-cout<<"enter the target element you want to find ";
-cin>>key;
-cout<<key <<" is present at index "<<Binarysearch(arr,n,key) <<" "<<endl;
-return 0;
-}
-int Binarysearch(int arr[],int size,int key)
+bool ispossible(vector<int> arr,int n,int m,int mid)
 {
-	int start=0,end=size-1,mid;
-	while(start<=end)
+	int studentcount=1,pagesum=0;
+
+for(int i=0;i<n;i++){
+
+if(pagesum+arr[i]<=mid)
 {
-	mid=(start+end)/2;
-	
+pagesum+=arr[i];
 }
+else
+{
+studentcount++;
+if(studentcount>m || arr[i]>mid){
+return false;
+}
+pagesum=arr[i];
+}
+}
+return true;
 }
