@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-bool everything_zero(int arr[],int i,int n);
+bool is_rest_zero(int arr[],int i,int n);
 int main()
 {
 	
@@ -35,7 +35,7 @@ int main()
 			i++;
 		}
 		
-		if(everything_zero(arr,i,n))
+		if(is_rest_zero(arr,i,n))
 		{
 			break;
 		}
@@ -50,16 +50,10 @@ int main()
 	}
 
 //freeing space allocated in heap memory
-delete[] arr;	
-	
+delete[] arr;		
 }
 
-
-
-
-
-
-bool everything_zero(int arr[],int i,int n)
+bool is_rest_zero(int arr[],int i,int n)
 {
 	int count=0;
 	for(int k=i;k<n;k++)
@@ -68,7 +62,5 @@ bool everything_zero(int arr[],int i,int n)
 			count++;
 		}		
 	}
-	
-	return count==(n-i);
-		
+	return count==(n-i);	
 }
