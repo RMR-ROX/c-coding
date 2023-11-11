@@ -40,7 +40,6 @@ void print(Node* &head)
 
 void reverse(Node* head,Node* tail)
 {
-	static int marker=1;
 	
 	Node* curr=head->next;
 	Node* prev=head;
@@ -70,11 +69,10 @@ void reverse(Node* head,Node* tail)
 	
 }	
 
-    marker++;
+   
 	reverse(head,tail);	
 	
-//	head=future_head;
-	
+
 }
 int main()
 {
